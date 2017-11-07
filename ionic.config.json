@@ -2,5 +2,7 @@
   "name": "cryptoConverter",
   "app_id": "bc0ce1b9",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

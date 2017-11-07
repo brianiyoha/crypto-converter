@@ -1,0 +1,53 @@
+
+
+  <ion-grid>
+    <ion-row  *ngIf="!err">
+      <ion-col col-12 col-sm-12 col-md-6>
+        <ion-card>
+          <ion-card-header>
+        <ion-card-title>CURRENT PRICE IN USD</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+        <h2> $ {{currentUSD}}</h2>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+      <ion-col col-12 col-sm-12 col-md-6>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>CURRENT PRICE IN NGN</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2> &#8358; {{currentNGN}}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="err">
+      <ion-col col-12 col-sm-12 col-md-6>
+        <ion-card>
+          <ion-card-content>
+            <h2>{{err}}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      </ion-row>
+  </ion-grid>
+<ion-card>
+  <ion-card-header>Select Currency To Covert To/From BTC</ion-card-header>
+<ion-list>
+  <button navPush="ConvertPage" [navParams]="{type: 'Naira',price: currentNGN}" name="ngn" ion-item>
+    <ion-icon ios="ios-cash-outline" name="cash" item-start></ion-icon>
+    NG Naira
+  </button>
+  <button navPush="ConvertPage" [navParams]="{type: 'USD',price: currentUSD}" ion-item>
+    <ion-icon ios="ios-cash-outline" name="cash" item-start></ion-icon>
+    US DOLLAR
+  </button>
+  <button ion-item>
+    <ion-icon name="logo-bitcoin" item-start></ion-icon>
+    Etherum 
+  </button>
+
+</ion-list>
+</ion-card>

@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Crypto Converter",
+  "short_name": "Crypto.C",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

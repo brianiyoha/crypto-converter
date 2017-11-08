@@ -1,0 +1,51 @@
+<ion-grid>
+  <ion-row *ngIf="!err">
+    <ion-col col-12 col-sm-12 col-md-6>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title text-wrap text-center>CURRENT PRICE IN USD</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h2 text-wrap text-center> $ {{currentUSD}}</h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col col-12 col-sm-12 col-md-6>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title text-wrap text-center>CURRENT PRICE IN NGN</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h2 text-wrap text-center> &#8358; {{currentNGN}}</h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="err">
+    <ion-col col-12 col-sm-12 col-md-6>
+      <ion-card>
+        <ion-card-content>
+          <h2>{{err}}</h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-card>
+  <ion-card-header>Select Currency To Covert To/From ETH</ion-card-header>
+  <ion-list>
+    <button navPush="ConvertPage" [navParams]="{selected:'ETH',type: 'Naira',price: currentNGN}" name="ngn" ion-item>
+      <ion-icon ios="ios-cash-outline" name="cash" item-start></ion-icon>
+      NG Naira
+    </button>
+    <button navPush="ConvertPage" [navParams]="{selected:'ETH',type: 'USD',price: currentUSD}" ion-item>
+      <ion-icon ios="ios-cash-outline" name="cash" item-start></ion-icon>
+      US DOLLAR
+    </button>
+    <button navPush="ConvertPage" [navParams]="{selected:'ETH',type: 'BTC',price: currentBTC}" ion-item>
+      <ion-icon name="logo-bitcoin" item-start></ion-icon>
+      BTC
+    </button>
+
+  </ion-list>
+</ion-card>

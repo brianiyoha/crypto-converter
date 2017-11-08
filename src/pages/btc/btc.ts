@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CryptoInfoProvider } from '../../providers/crypto-info/crypto-info';
 
 
 
@@ -11,8 +10,9 @@ import { CryptoInfoProvider } from '../../providers/crypto-info/crypto-info';
 })
 export class BtcPage {
 
-  
-  constructor(private crypto:CryptoInfoProvider,public navCtrl: NavController, public navParams: NavParams) {
+  selected:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  this.selected = navParams.get('selected');
   }
 
   ionViewDidLoad() {

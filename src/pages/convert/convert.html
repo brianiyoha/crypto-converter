@@ -1,19 +1,19 @@
 
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{type}}</ion-title>
+  <ion-navbar  [color]="selected=='ETH'? 'dark' : 'primary'">
+    <ion-title>{{this?.selected | uppercase }} > {{type}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content [class]="selected=='BTC' ? 'btc_primary': 'eth_primary'" padding>
   <ion-grid>
     <ion-col col-sm-12 col-md-6 col-xl-6 push-md-3 push-xl-3>
 <ion-card>
 <ion-card-header>
-  <ion-card-title text-center>BTC <ion-icon name="swap"></ion-icon> {{type}} </ion-card-title></ion-card-header>
+  <ion-card-title text-center>{{selected | uppercase}} <ion-icon name="swap"></ion-icon> {{type}} </ion-card-title></ion-card-header>
 <ion-card-content>
   <ion-list>
     <ion-row >
@@ -21,7 +21,7 @@
     <ion-item>
       <ion-label floating>From...</ion-label>
       <ion-select (ionChange)="convert(amount)" [(ngModel)]="convertionType">
-        <ion-option value="btc">BTC</ion-option>
+        <ion-option value="{{selected | lowercase}}">{{selected | uppercase}}</ion-option>
         <ion-option value="{{type | lowercase}}">{{type | uppercase}}</ion-option>
       </ion-select>
     </ion-item>
@@ -35,14 +35,16 @@
 </ion-row>
 <ion-item-divider ></ion-item-divider> 
 <div *ngIf="convertionType" style="margin-top:20px;" class="center" padding>
-  <div *ngIf="convertionType==='btc' && total || convertionType==='btc' && total==0">  
+  <div *ngIf="convertionType===selected.toLowerCase() && total || convertionType===selected.toLowerCase() && total==0">  
   <h2 ><b><ion-icon name="arrow-forward"></ion-icon> {{type | uppercase}}</b></h2>
     <h2 *ngIf="type.toLowerCase()==='naira'">&#8358; {{total}}</h2>
     <h2 *ngIf="type.toLowerCase()==='usd'">$ {{total}}</h2>
+    <h2 *ngIf="type.toLowerCase()==='eth'"> {{total}} ETH</h2>
+    <h2 *ngIf="type.toLowerCase()==='btc'"> {{total}} BTC</h2>
   </div>
   <div *ngIf="convertionType===type.toLowerCase()  && total ||convertionType===type.toLowerCase() && total==0">
-    <h2><b><ion-icon name="arrow-forward"></ion-icon> BitCoin</b></h2>
-    <h2>{{total}} BTC</h2>
+    <h2><b><ion-icon name="arrow-forward"></ion-icon> {{selected | uppercase}}</b></h2>
+    <h2>{{total}} {{selected | uppercase}}</h2>
   </div>
   
 </div>

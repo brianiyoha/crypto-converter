@@ -1,18 +1,18 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
       Select Cypto
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="main_primary" padding>
   <ion-grid>
     <ion-list>
-      <ion-list-header no-lines>Tap Card To Check Conversion Rate/ Covert to-from selected cypto</ion-list-header>
+      <ion-list-header  no-lines text-wrap text-center>Tap Card To Check Conversion Rate/ Covert to-from selected cypto</ion-list-header>
     <ion-row>
     <ion-col col-12 col-sm-12 col-md-6 col-xl-6>
-      <ion-card navPush="BtcPage">
+      <ion-card color="primary" navPush="BtcPage" [navParams]="{selected: 'btc'}">
         <ion-card-content>
           <ion-avatar>
             <img src="assets/imgs/bitcoin.png">  
@@ -23,7 +23,7 @@
      
 <ion-col col-12 col-sm-12 col-md-6 col-xl-6>
 
-      <ion-card>
+      <ion-card color="dark"  navPush="BtcPage" [navParams]="{selected: 'eth'}">
         <ion-card-content>
           <ion-avatar>
             <img  src="assets/imgs/etherum.png">  

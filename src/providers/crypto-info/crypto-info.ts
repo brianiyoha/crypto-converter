@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class CryptoInfoProvider {
   
-  base_url: string = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,NGN";
+  base_url: string = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,NGN,BTC,ETH";
 
   constructor(public http: Http) {
     console.log('Hello CryptoInfoProvider Provider');
